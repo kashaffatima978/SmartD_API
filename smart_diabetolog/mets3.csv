@@ -1,0 +1,433 @@
+Activity,description,METS
+Bicycling,"Stationary, 150 W, medium load",7
+Bicycling,"Stationary, 200 W, heavy load",10.5
+Bicycling,"Stationary, 250 W, very heavy load",12.5
+,"General calisthenics, home exercise,
+        light to moderate intensity, back exercises, pushups (calisthenic
+        exercises can be designed for specific fitness components)",4.5
+Conditioning,"Circuit training, general (can be
+        designed for specific fitness components)",8
+Conditioning,"Calisthenics (e.g., pushups, pullups,
+        situps), heavy and vigorous",6
+Conditioning,"Weight lifting (free weights, cybex,
+        nautilus, or universal-type), power lifting or body
+        building: vigorous effort). Resistance and repetitions
+        are specific to muscular endurance or strength. Record
+        only the time spent moving weights. ",6
+Conditioning,"Health club exercises, general: activity
+        type is specific to the fitness component(s). Be specific
+        to the type and amount of exercises.",5.5
+Conditioning,"Stair-treadmill ergometer, general",6
+Conditioning,"Rowing, stationary ergometer, general",9.5
+Conditioning,"Rowing stationary, 50 W, light load",3.5
+Conditioning,"Rowing stationary, 100 W, medium load",7
+Conditioning,"Rowing stationary, 150 W, heavy load",8.5
+Conditioning,"Rowing stationary, 200 W, very heavy
+        load",12
+Conditioning,"Rowing stationary, 250 W, very very heavy load",13
+Conditioning,"Ski machine, general",9.5
+Conditioning,Slimnastics,6
+Conditioning,"Stretching, hatha yoga",4
+Conditioning,Teaching aerobic exercise class,6
+Conditioning,"Weight lifting (free, nautilus or universal type,
+        light) or moderate effort, light workout, general",3
+,"Aerobic, ballet or modern",6
+Dance,"Dancing, general",4.5
+Dance,"Aerobic, low intensity",5
+Dance,"Aerobic, general, medium intensity ",6
+Dance,"Aerobic, high intensity ",7
+Dance,"Aerobic, very high inetensity and high impact",8
+Dance,"Ballroom, fast (e.g., disco, folk,
+        square)",5.5
+Dance,"Ballroom, slow (e.g., waltz, foxtrot,
+        slow dancing)",3
+,"Fishing, general ",4
+Fish & hunt,Digging worms with shovel,4
+Fish & hunt,Fishing from river bank and walking,5
+Fish & hunt,"Fishing from river bank, standing",3.5
+Fish & hunt,Stream fishing in waders,6
+Fish & hunt,"Hunting, deer, elk, large game",6
+Fish & hunt,"Hunting, general",5
+Fish & hunt,"Hunting, pheasants or grouse",6
+Fish & Hunt ,"Hunting, rabbit, squirrel, prairie
+        chick, rackoon, small game",5
+ ,"Cleaning, heavy or major (e.g, wash car,
+        wash windows, mop, clean garage), vigorous effort",4.5
+Home,"Cleaning house or cabin, general",3.5
+Home ,Carrying groceries upstairs,8
+Home,Food shopping with grocery cart,3.5
+Home ,"Moving furniture, household ",6
+Home ,Scrubbing floors on hands and knees,5.5
+Home ,"Sweeping garage, sidewalk or outside of
+        house",4
+Home ,"Moving houselhold items, carrying boxes ",7
+Home ,"Standing-packing/unpaking boxes,
+        occasional lifting of household items, light to medium
+        load.",3.5
+Home,"Implied walking-putting away household
+        items-moderate intensity",3
+Home ,"Move household items upstairs, carrying
+        boxes or furniture",9
+Home,"Walking-light, noncleaning (ready to
+        leave, shut/lock doors, close windows, etc.",3
+Home ,Walk/run playing with children-moderate,4
+Home,Walk/run-playing with children-vigorous,5
+Home,"Child care: sitting/kneeling-dressing,
+        bathing, grooming, feeding, occasional lifting of child-light
+        effort",3
+Home,"Showering, toweling off (standing),
+        bathing, grooming, occasionaly (lifting child light
+        effort)",3.5
+,Airplane repair,3
+Home repair,Automobile body work ,4.5
+Home repair,Automobile repair,3
+Home repair,"Carpentry, general, workshop ",3
+Home repair,"Carpentry, outside house (e.g.,
+        installing rain gutters) ",6
+Home repair,"Carpentry, finishing or refinishing
+        cabinets or furniture ",4.5
+Home repair,"Carpentry, sawing hardwood ",7.5
+Home repair,"caulking, chinking log cabin",5
+Home repair,"Caulking, except log cabin ",4.5
+Home repair,Cleaning gutters ,5
+Home repair,Excavating garage ,5
+Home repair,Hanging storm windows ,5
+Home repair,Laying or removing carpet ,4.5
+Home repair,Laying tile or linoleum ,4.5
+Home repair,"Painting, outside house ",5
+Home repair,"Painting, papering, plastering,
+        scraping, inside house, hanging sheet rock, remodeling ",6
+Home repair,Roofing ,6
+Home repair,Scrape and paint sailboat or powerboat ,4.5
+Home repair,Spreading dirt with a shovel ,5
+Home repair,"Wash and wax hull of sailboat, car,
+        powerboat, airplane",4.5
+Home repair,Wiring and plumbing ,3
+ ,"Carrying, loading or stacking wood,
+        loading or carrying lumber ",5
+Yardwork  ,"Chopping wood, splitting wood ",6
+Yardwork ,"Clearing land, hauling branches ",5
+Yardwork ,"Digging, spading, filling garden ",5
+Yardwork ,"Gardening with heavy power tools,
+        tilling a garden ",6
+Yardwork ,Laying crushed rock ,5
+Yardwork ,Laying sod ,5
+Yardwork ,"Mowing lawn, general ",5.5
+Yardwork ,"Mowing lawn, hand mower ",6
+Yardwork ,"Mowing lawn, walk, power mower ",4.5
+Yardwork ,"Operating snow blower,walking ",4.5
+Yardwork ,"Planting seedlings, shrubs ",4
+Yardwork ,Planting trees ,4
+Yardwork ,Raking lawn ,4
+Yardwork ,Raking roof with snow rake ,4
+Yardwork ,Riding snow blower ,3
+Yardwork ,Sacking grass or leaves ,4
+Yardwork,Shoveling snow by hand ,6
+Yardwork,"Trimming shrubs or trees, manual cutter",4.5
+Yardwork,"Trimming shrubs or trees, power cutter",3.5
+Yardwork,"Weeding, cultivating garden",4.5
+Yardwork,"Gardening, general",5
+Yardwork,"Implied walking/standing-picking up yard, light",3
+,Drums,4
+Music ,Trombone,3.5
+Music ,"Guitar, rock and roll and (standing)",3
+Music ,"Marching band, playing an instrument, baton twirling,
+        walking",4
+Music,"Marching band, drum major (walking)",3.5
+,"Bakery, general",4
+Work,"Building road (including hauling debris, driving
+        heavy machinery)",6
+Work,"Carpentry, general",3.5
+Work,"Carrying heavy loads, like bricks",8
+Work,"Carrying moderate loads up stairs, moving boxes (16-40
+        pounds)",8
+Work,"Coal mining, drilling coal, rock",6.5
+Work,"Coal mining, erecting supports",6.5
+Work,"Coal mining, general",6
+Work,"Coal mining, shoveling coal",7
+Work,"Construction, outside remodeling",5.5
+Work,"Electrical work, plumbing",3.5
+Work,"Farming, bailing hay, cleaning barn, poultry work",8
+Work,"Farming, chasing cattle, nonstrenuous",3.5
+Work,"Farming, feeding small animals",4
+Work,"Farming, feeding cattle",4.5
+Work,"Farming, forking straw bales",8
+Work,"Farming, milking by hand",3
+Work,"Farming, shoveling grain",5.5
+Work,"Fire fighter, general",12
+Work,"Fire fighter, climbing ladder with full gear",11
+Work,"Fire fighter, hauling hoses on ground",8
+Work,"Forestry, ax chopping, fast",17
+Work,"Forestry, ax chopping, slow",5
+Work,"Forestry, barking trees",7
+Work,"Forestry, carrying logs",11
+Work,"Forestry, felling trees",8
+Work,"Forestry, general",8
+Work,"Forestry, hoeing",5
+Work,"Forestry, planting by hand",6
+Work,"Forestry, sawing by hand",7
+Work,"Forestry, sawing power",4.5
+Work,"Forestry, trimming trees",9
+Work,"Forestry, weeding",4
+Work,Furriery,4.5
+Work,Horse grooming,6
+Work,"Horse racing, galloping",8
+Work,"Horse racing, trotting",6.5
+Work,Locksmith,3.5
+Work,"Machine tooling, operating a lathe",3
+Work,"Machine tooling, operating punch press",5
+Work,"Machine tooling, tapping and drilling",4
+Work,"Machine tooling, welding",3
+Work,"Masonry, concrete",7
+Wprk,"Masseur, masseuse (standing)",4
+Work,"Moving, pushing heavy objects, 75 lbs or more (desks,
+        moving van work",7
+Work,Orange grove work,4.5
+Work,"Police, making an arrest (standing)",8
+Work,"Shoveling, digging ditches",8.5
+Work,"Shoveling, heavy (more than 16 lbs./min)",9
+Work,"Shoveling, light (less than 10 lbs/min)",6
+Work,"Shoveling, moderate (10-15 lbs./min)",7
+Work,"Standing; light moderate/heavy (assemble/repair heavy
+        parts, welding, stocking, auto hitch/twisting)",3
+Work,"Standing: moderate/heavy (lifting more than 50 lb,
+        masonry, painting, paper hanging)",4
+Work,"Steel mill, fettling",5
+Work,"Steel mill, forging",5
+Work,"Steel mill, hand rolling",8
+Work,"Steel mill, merchant mill rolling",8
+Work,"Steel mill, removing slag",11
+Work,"Steel mill, tending furnace",7.5
+Work,"Steel mill, tipping molds",5.5
+Work,"Steel mill, working in general",8
+Work,"Taloring, pressing",4
+Work,"Truck driving, loading and unloading truck (standing)",6.5
+Work,"Using heavy power tools such as pneumatic tools (jackhammers,
+        drills, etc.)",6
+Work,"Using heavy tools (not power) such as shovel, pick,
+        tunnel bar, spade",8
+Work,"Walking on job, 3.5 mph, in office, moderate speed,
+        not carrying anything",3.5
+Work,"Walking on job, 3.5 mph, in office, brisk speed, not
+        carrying anything",3
+Work,"Walking, 2.5 mph, slowly and carrying light objects
+        less than 25 lbs",3
+Work,"Walking, 3.0 mph, moderately and carrying objects
+        less than 25 lbs",4
+Work,"Walking, 3.5 mph, briskly and carrying objects less
+        than 25 lbs",4.5
+Work,"Walking or walk downstairs or standing, carrying
+        objects about 25-49 lbs",5
+Work,"Walking or walk downstairs or standing, carrying
+        objects about 50-74 lbs",6.5
+Work,"Walking or walk downstairs or standing, carrying
+        objects about 75-99 lbs",8.5
+Work,"Walking or walk downstairs or standing, carrying
+        objects about 100 lbs and over",8.5
+Work,"Working in scene shop, theater actor, backstage,
+        employee",3
+,"Jog/walk combination (jogging component of less than
+        10 min)",6
+Running,"Jogging, general",7
+Running,"Running, 5 mph (12 min/miile)",8
+Running,"Running, 5.2 mph (11.5 min/mile)",9
+Running,"Running, 6 mph (10 min/mile)",10
+Ruinning,"Running, 6.7 mph (9 min/mile)",11
+Running,"Running, 7 mph (8.5 min/mile)",11.5
+Running,"Running, 7.5 mph (8 min/mile)",12.5
+Running,"Running, 8 mph (7.5 min/mile)",13.5
+Running,"Running, 8.6 mph (7 min/mile)",14
+Running,"Running, 9 mph (6.5 min/mile)",15
+Running,"Running, 10 mph (6 min/mile)",16
+Running,"Running, 10.9 mph (5.5 min/mile)",18
+Running,"Running, cross-country",9
+Running,"Running, general",8
+Running,"Running, in place",8
+Running,"Running, stairs, up",15
+Running,"Running, on a track, team practice",10
+Running,"Running, training, pushing wheelchair, marathon
+        wheeling",8
+Running,"Running, wheeling, general",3
+,Archery (nonhunting),3.5
+Sport,"Badminton, competetive",7
+Sport,"Badminton, social singles and doubles, general",4.5
+Sport,"Basketball, game",8
+Sport,"Basketball, nongame, general",6
+Sport,"Basketball, officiating",7
+Sport,"Basketball, shooting baskets",4.5
+Sport,"Basketball, wheelchair",6.5
+Sport,Bowling,12
+Sport,"Boxing, in ring, general",6
+Sport,"Boxing, punching bag",9
+Sport,"Boxing, sparring",7
+Sport,Broomball,7
+Sport,"Children's games (hopscotch, 4-square, dodgeball,
+        playground apparatus, t-ball, tetherball, marbles, jacks,
+        arcade games)",5
+Sport,"Coaching: football, soccer, basketball, baseball,
+        swimming, etc.",4
+Sport,"Cricket (batting, bowling)",5
+Sport,Curling,4
+Sport,"Drag racing, pushing or driving a car",6
+Sport,Fencing,6
+Sport,"Football, competitive",9
+Sport,"Football, touch, flag, general",8
+Sport,"Frisbee playing, general",3
+Sport,"Frisbee, ultimate",3.5
+Sport,"Golf, general",4.5
+Sport,"Golf, carrying clubs",5.5
+Sport,"Golf, miniature, driving range",3
+Sport,"Golf, pulling clubs",5
+Sport,"Golf, using power cart",3.5
+Sport,"Gymnastics, general",4
+Sport,Hacky sack,4
+Sport,"Handball, general",12
+Sport,"Handball, team",8
+Sport,Hang gliding,3.5
+Sport,"Hockey, field",8
+Sport,"Hockey, ice",8
+Sport,"Horseback riding, general",4
+Sport,"Horseback riding, saddling horse",3.5
+Sport,"Horseback riding, trotting",6.5
+Sport,"Horseshoe pitching, quoits",3
+Sport,Jai alai,12
+Sport,"Judo, jujitsu, karate, kick boxing, tae kwon do",10
+Sport,Juggling,4
+Sport,Kickball,7
+Sport,Lacrosse,8
+Sport,Moto-cross,4
+Sport,Orienteering,9
+Sport,"Paddleball, competitive",10
+Sport,"Paddleball, casual, general",6
+Sport,Polo,8
+Sport,"Racquetball, competetive",7
+Sport,"Racquetball, casual, general",7
+Sport,"Rock climbing, ascending rock",11
+Sport,"Rock climbing, repeling",8
+Sport ,"Rope jumping, fast",12
+Sport,"Rope jumping,moderate, generat",10
+Sport,"Rope jumping, slow",8
+Sport,Rugby,10
+Sport,"Shuffleboard, Lawn bowling",3
+Sport,Skateboarding,5
+Sport,"Skating, roller",7
+Sport,Sky diving,3.5
+Sport,"Squash, social",7
+Sport,"Soccer, competition",10
+Sport,"Soccer, casual, general ",7
+Sport,"Softball or baseball, fast or slow pitch, general",5
+Sport,"Softball, officiating",4
+Sport,"Softball, pitching",6
+Sport,Squash,12
+Sport,"Table tennis, ping pong",4
+Sport,"Tai, chi",4
+Sport,"Tennis, general, low skill level",7
+Sport,Tennis doubles ,6
+Sport,"Tennis, singles",8
+Sport,Trampoline,3.5
+Sport,"Vollyball, competetive, higer skill loevel",5
+Sport,"Vollyball, competetive in gymnasium",4
+Sport,"Vollyball, noncompetetive; 6-9 member team",3
+Sport,"Vollyball, beach",8
+Sport,"Wallyball, general",7
+Sport,"Wrestling, (one match = 5 min)",6
+Sport,"Wallyball, general",8
+,"Backpacking, general",7
+Walking,"Carrying infant or 15-lb load (e.g., suitcase), level
+        ground or downstairs",3.5
+Walking,"Walking on job, 3.5 mph, in office, brisk speed, not
+        carrying anything",4
+Walking,"Carrying load upstairs, general",9
+Walking,"Carrying 1- to 15 lb load, upstairs",5
+Walking,"Carrying 16- to 24 lb load, upstairs",6
+Walking,"Carrying 25- to 49 lb load, upstairs",8
+Walking,"Carrying 50- to 74 lb load, upstairs",10
+Walking,"Carrying 74+ lb load, upstairs",12
+Walking,Climbing hills with 0- to 9 lb load,7
+Walking,Climbing hills with 10- to 20 lb load,7.5
+Walking,Climbing hills with 21-to 42 lb load,8
+Walking,Climbing hill with 42+ load,9
+Walking,Walking downstairs,3
+Walking,"Hiking, cross country",6
+Walking,"Marching, rapidly rapidily, military, race walking",6.5
+Walking,Rock or mountain climbing,8
+Walking,"Up stairs, using or climbing up ladder",8
+Walking,Using crutches,4
+Walking,"Walking, 2.5 mph, downhill",3
+Walking,"Walking, 3.0 mph, level, moderate pace, firm surface ",3.5
+Walking,"Walking, 3.5 mph, level, brisk, firm surface ",4
+Walking,"Walking 3.5 mph, uphill ",6
+Walking,"Walking 4 mph, level, firm surface, very brisk pace",4
+Walking,"Walking 4.5 mph, level firm surface, very, very,
+        brisk ",4.5
+Walking,"Walking, for pleasure, work brisk, walking the dog ",3.5
+Walking,"Walking, grass track ",5
+Walking ,"Walking, to work or class ",4
+,Canoeing on camping trip,4
+Water ,Canoeing partaging,7
+Water ,"Canoeing, rowing, 2-3.9 mph, light effort",3
+Water ,"Canoeing, rowing, 4-5.9 mph, moderate effort",7
+Water ,"Canoeing, rowing, > 6 mph, vigorous effort",12
+Water,"Canoeing for pleasure, general",3.5
+Water ,"Canoeing in competition, crew or sculling",12
+Water ,"Diving, springboard or platform",3
+Water ,Recreational kayaking (not competitive),5
+Water,Paddleboat,4
+Water ,"Sailing, boat and board sailing, windsurfing, ice
+        sailing, general",3
+Water ,"Sailing, in competition",5
+Water ,"Sailing, Sunfish/Laser/Hoby Cat, keel boats, ocean
+        sailing, yachting",3
+Water ,"Skiing, water",6
+Water ,Skimobiling,7
+Water,"Skin diving, fast",16
+Water ,"Skin or scuba diving, moderate ",12.5
+Water ,"Skin or scuba diving, general ",7
+Water ,"Skin or scuba diving, high skill level ",12
+Water,Snorkeling,5
+Water ,"Surfing, body or board",3
+Sport,"Water vollyball, general",4.5
+Water ,"Swimming laps, freestyle, fast, vigorous (e.g., 50
+        yards in 50 seconds), note: All swimming activitites are
+        subject to high variations in MET units based on skill
+        level.",10
+Water ,"Swimming laps, freestyle, moderate (e.g., 50 yards in
+        70 seconds) ",9
+Water ,"Swimming backstroke, general",8
+Water,"Swimming breaststroke, general",10
+Water ,"Swimming, butterfly, general",11
+Water ,"Swimming, crawl, fast (75 yards per minute),
+        vigorous, skilled swimmer",11
+Water ,"Swimming, crawl, slow (50 yards per minute) somewhat
+        light intensity",8
+Water ,"Swimming, lake, ocean, river",6
+Water,"Swimming leisurely, not lap swimming, general",6
+Water ,"Swimming sidestroke, general ",8
+Water ,"Swimming, synchronized",8
+Water ,"Swimming, treading water, fast vigorous effort",10
+Water ,"Swimming, treading water, moderate effort, general",4
+Water ,Water polo,10
+Water,Water volleyball,3
+Water ,"Water aerobic, water calisthenics",4
+,"Whitewater rafting, kayaking, or canoeing",5
+Winter,"Moving ice house (setup/drill holes, etc.)",6
+Winter ,"Skating, ice 9 mph or less",5.5
+Winter ,"Skating, ice, general ",7
+Winter ,"Skating ice, rapidly, more than 9 mph",9
+Winter,"Skating, speed, competetive",15
+Winter ,Ski jumping (climb up carrying skis),7
+Winter ,"Sking, general",7
+Winter ,"Skiing, cross-country, 2.5 mph, slow or light effort,
+        ski walking",7
+Winter ,"Skiing, cross-country, 4-4.9 mph, moderate speed and
+        effort",8
+Winter ,"Skiing, cross-country, 5-7.9 mph, brisk speed,
+        vigorous effort",9
+Winter ,"Skiing, cross-country, >8 mph, racing",14
+Winter ,"Skiing, cross-country, hard snow, uphill, maximum",16.5
+Winter ,"Skiing, downhill, light effort ",5
+Winter ,"Skiing downhill, moderate effort, general",6
+Winter ,"Skiing, downhill, vigorous effort, racing",8
+Winter ,"Sledding, tobogganing, bobsledding, luge",7
+Winter,Snow shoeing,8
+Winter ,Snowmobiling,3.5

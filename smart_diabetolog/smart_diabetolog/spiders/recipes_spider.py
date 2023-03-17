@@ -3,15 +3,9 @@ import random
 
 class RecipeSpider(scrapy.Spider):
     name = "recipes"
-    n1 = (random.randint(0 , 10))
-    n2 = (random.randint(11, 20))
-    n3 = (random.randint(21, 30))
-    n4 = (random.randint(31, 45))
+    page_number = 1
     start_urls = [
-        'https://www.diabetes.org.uk/guide-to-diabetes/recipes?page='+str(n1),
-        'https://www.diabetes.org.uk/guide-to-diabetes/recipes?page=' + str(n2),
-        'https://www.diabetes.org.uk/guide-to-diabetes/recipes?page=' + str(n3),
-        'https://www.diabetes.org.uk/guide-to-diabetes/recipes?page=' + str(n4),
+        'https://www.diabetes.org.uk/guide-to-diabetes/recipes?page=0'
     ]
     def parse(self, response):
         recipes = response.css('article.recipes-card')
@@ -28,6 +22,10 @@ class RecipeSpider(scrapy.Spider):
                 'cookTime': cookTime,
                 'img': imgUrl
             }
+            next_page = 'https://www.diabetes.org.uk/guide-to-diabetes/recipes?page='+str(RecipeSpider.page_number)
+            if RecipeSpider.page_number <= 45:
+                RecipeSpider.page_number += 1
+                yield response.follow(next_page, callback= self.parse)
 
 
 

@@ -66,9 +66,10 @@ def changeFloatToStringInArray(array: list):
     return array
 
 @app.post('/dietPlan')
-def DietPlan (calories: int = Body(embed=True)):
+def DietPlan (calories: int = Body(embed=True),alergies: list[str]=  Body(embed=True)):
     print(calories)
-    res = dietPlan(calories)
+    print(alergies)
+    res = dietPlan(calories,alergies)
     breakfast = changeFloatToStringInArray(list(res[0]))
     snack1 = changeFloatToStringInArray(list(res[1]))
     lunch = changeFloatToStringInArray(list(res[2]))
@@ -241,6 +242,6 @@ def getVideos():
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    uvicorn.run(app, host='192.168.0.169', port=8000)
+    uvicorn.run(app, host='192.168.170.35', port=8000)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

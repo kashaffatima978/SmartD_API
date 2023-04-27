@@ -34,9 +34,12 @@ def getCarbs(calories):
   # print(floor)
   return predicted
 
-def getRecipe(calories,carbs):
-  XRD=dfForRD[["kCal","carbs"]]
-  YRD=dfForRD["nameEncoded"]
+def getRecipe(calories,carbs,filteredRecipes):
+  print("************************************************")
+  print("************************************************")
+  print(filteredRecipes)
+  XRD=filteredRecipes[["kCal","carbs"]]
+  YRD=filteredRecipes["nameEncoded"]
   #predict using model
   model=RandomForestClassifier(n_estimators=100)
   #training the model
@@ -44,15 +47,30 @@ def getRecipe(calories,carbs):
   #predicting
   predict=model.predict([[calories,carbs]])
   print(predict)
+  print("************************************************")
   recipeDetails = dfForRD[dfForRD['nameEncoded'] == predict[0]]
+  print("************************************************")
+  print(recipeDetails)
+
+ 
   #remove the predicted recipe from random forest dataset
   #dfForRD=dfForRD.loc[dfForRD['nameEncoded'] != predict[0] ]
   dfForRD.drop(dfForRD[dfForRD['nameEncoded'] == predict[0]].index,inplace=True)
+  filteredRecipes.drop(filteredRecipes[filteredRecipes['nameEncoded'] == predict[0]].index,inplace=True)
   #change 2D array to 1D
   print(recipeDetails.to_numpy()[0])
   return recipeDetails.to_numpy()[0]
 
-def dietPlan(calories):
+def dietPlan(calories,alergies):
+  #allergies has list of ingredients user has allergy with
+    #remove all recipes with alergies from df and dfForRD
+    dfForRD['name']=dfForRD['name'].str.lower()
+    mask = [any(word in x.lower() for word in alergies) for x in dfForRD['name']]
+    print(mask)
+    # new_df = dfForRD[~mask]
+    mask = np.array(mask)
+    df_filtered = dfForRD.loc[~mask]
+    print(df_filtered.shape)
   #get calories for each meal
     caloriesForBreakfast=calories*25/100
     caloriesForSnack1=calories*10/100
@@ -67,20 +85,20 @@ def dietPlan(calories):
       recipe=[]
       if(i==1):
         carbs=getCarbs(caloriesForBreakfast)
-        recipe=getRecipe(caloriesForBreakfast,carbs[0])
+        recipe=getRecipe(caloriesForBreakfast,carbs[0],df_filtered)
 
       elif(i==2):
         carbs=getCarbs(caloriesForSnack1)
-        recipe=getRecipe(caloriesForSnack1,carbs[0])
+        recipe=getRecipe(caloriesForSnack1,carbs[0],df_filtered)
       elif(i==3):
         carbs=getCarbs(caloriesForLunch)
-        recipe=getRecipe(caloriesForLunch,carbs[0])
+        recipe=getRecipe(caloriesForLunch,carbs[0],df_filtered)
       elif(i==4):
         carbs=getCarbs(caloriesForSnack2)
-        recipe=getRecipe(caloriesForSnack2,carbs[0])
+        recipe=getRecipe(caloriesForSnack2,carbs[0],df_filtered)
       elif(i==5):
         carbs=getCarbs(caloriesForDinner)
-        recipe=getRecipe(caloriesForDinner,carbs[0])
+        recipe=getRecipe(caloriesForDinner,carbs[0],df_filtered)
 
       dietPlan.append((recipe))
       # print("diet plan is-----------------------")

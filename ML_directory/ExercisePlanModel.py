@@ -120,7 +120,15 @@ def appendExercise(frames, caloriesBurntForEachCategory):
 
 def makeExercisePlan(routine, caloriesToBeBurned):
     # routine is an array [back,arms,shoulders,waist,legs,chest,cardio,neck] containing boolean values
+    print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+    print(routine)
+    print(caloriesToBeBurned)
+    print("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
+
     activated = sum(routine)
+    if(activated==0):
+        return []
+    
     timeForEachCategory = (10 / activated)  # gives minutes
     caloriesBurntForEachCategory = caloriesToBeBurned / activated
     exercises = []

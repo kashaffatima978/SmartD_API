@@ -4,6 +4,7 @@ import re
 import cv2
 import uvicorn
 from fastapi import Body, FastAPI, File, UploadFile
+from fastapi import Body, FastAPI, File, UploadFile
 import numpy as np
 import tensorflow as tf
 from pandas.io import json
@@ -15,6 +16,7 @@ from ML_directory.ExercisePlanModel import getExercise
 import json
 from bs4 import BeautifulSoup
 import requests
+from Food.VolumeEstimation import preprocess_image , estimate
 
 
 app = FastAPI()
@@ -108,6 +110,15 @@ def ExercisePlan (day: int = Body(embed=True), weight: float = Body(embed=True),
     return{
         'res': arr_json
     }
+
+# async def run_spider(name: str):
+#     url = 'https://www.diabetes.org.uk/guide-to-diabetes/recipes/'+name
+#     configure_logging({'LOG_FORMAT': '%(levelname)s: %(message)s'})
+#     runner = CrawlerRunner()
+#     d = runner.crawl(OneRecipe, start_urls = [url])
+#     d.addBoth(lambda _: reactor.stop())
+#     reactor.run()
+
 
 # async def run_spider(name: str):
 #     url = 'https://www.diabetes.org.uk/guide-to-diabetes/recipes/'+name
@@ -239,9 +250,158 @@ def getVideos():
 
     return{'ids': ids}
 
+VolumeModel = tf.keras.models.load_model("./Food/foodClassificationModel")
+foodClasses = ['apple_pie',
+ 'baby_back_ribs',
+ 'baklava',
+ 'beef_carpaccio',
+ 'beef_tartare',
+ 'beet_salad',
+ 'beignets',
+ 'bibimbap',
+ 'bread_pudding',
+ 'breakfast_burrito',
+ 'bruschetta',
+ 'caesar_salad',
+ 'cannoli',
+ 'caprese_salad',
+ 'carrot_cake',
+ 'ceviche',
+ 'cheesecake',
+ 'cheese_plate',
+ 'chicken_curry',
+ 'chicken_quesadilla',
+ 'chicken_wings',
+ 'chocolate_cake',
+ 'chocolate_mousse',
+ 'churros',
+ 'clam_chowder',
+ 'club_sandwich',
+ 'crab_cakes',
+ 'creme_brulee',
+ 'croque_madame',
+ 'cup_cakes',
+ 'deviled_eggs',
+ 'donuts',
+ 'dumplings',
+ 'edamame',
+ 'eggs_benedict',
+ 'escargots',
+ 'falafel',
+ 'filet_mignon',
+ 'fish_and_chips',
+ 'foie_gras',
+ 'french_fries',
+ 'french_onion_soup',
+ 'french_toast',
+ 'fried_calamari',
+ 'fried_rice',
+ 'frozen_yogurt',
+ 'garlic_bread',
+ 'gnocchi',
+ 'greek_salad',
+ 'grilled_cheese_sandwich',
+ 'grilled_salmon',
+ 'guacamole',
+ 'gyoza',
+ 'hamburger',
+ 'hot_and_sour_soup',
+ 'hot_dog',
+ 'huevos_rancheros',
+ 'hummus',
+ 'ice_cream',
+ 'lasagna',
+ 'lobster_bisque',
+ 'lobster_roll_sandwich',
+ 'macaroni_and_cheese',
+ 'macarons',
+ 'miso_soup',
+ 'mussels',
+ 'nachos',
+ 'omelette',
+ 'onion_rings',
+ 'oysters',
+ 'pad_thai',
+ 'paella',
+ 'pancakes',
+ 'panna_cotta',
+ 'peking_duck',
+ 'pho',
+ 'pizza',
+ 'pork_chop',
+ 'poutine',
+ 'prime_rib',
+ 'pulled_pork_sandwich',
+ 'ramen',
+ 'ravioli',
+ 'red_velvet_cake',
+ 'risotto',
+ 'samosa',
+ 'sashimi',
+ 'scallops',
+ 'seaweed_salad',
+ 'shrimp_and_grits',
+ 'spaghetti_bolognese',
+ 'spaghetti_carbonara',
+ 'spring_rolls',
+ 'steak',
+ 'strawberry_shortcake',
+ 'sushi',
+ 'tacos',
+ 'takoyaki',
+ 'tiramisu',
+ 'tuna_tartare',
+ 'waffles']
+
+def estimateVolume(topPath, sidePath):
+    cnts, cntsArea = preprocess_image(topPath)
+    length, width = estimate(cnts,cntsArea, topPath)
+    cnts1, cntsArea1 = preprocess_image(sidePath)
+    height, width = estimate(cnts1,cntsArea1, sidePath)
+    Volume = (length) * (width) * (height)
+    Volume = Volume * 16.3871
+    print('Volume is ', Volume)
+    return Volume
+
+@app.post('/getVolume')
+async def getVolume(top: UploadFile = File(...),side: UploadFile = File(...)):
+    print("hello i am here ")
+    contents = await top.read()
+    contents1 = await side.read()
+    with open('./Images/top.jpg', 'wb') as f:
+        f.write(contents)
+    with open('./Images/side.jpg', 'wb') as f:
+        f.write(contents1)
+
+    topimg = cv2.imread("./Images/top.jpg")
+    print(topimg)
+    sideimg = cv2.imread("./Images/side.jpg")
+    print(sideimg)
+    # Resize the image to 224x224 pixels and add a batch dimension
+    resized_img = cv2.resize(topimg, (224, 224), 3)
+    resized_img = np.expand_dims(resized_img, axis=0)
+    prediction = VolumeModel.predict(resized_img)
+    max_index = np.argmax(prediction)
+    foodName = foodClasses[max_index]
+    foodName = foodName.replace("_", " " )
+
+    Volume = estimateVolume("./Images/top.jpg", "./Images/side.jpg" )
+    query = str(Volume)+' cm3 '+foodName
+    print("***********************************************",query)
+    api_url = 'https://api.api-ninjas.com/v1/nutrition?query={}'.format(query)
+    print(api_url)
+    response = requests.get(api_url, headers={'X-Api-Key': 'avnKxya254Me1ijNIJ6uIw==JA9ffe9fNotaycST'})
+    if response.status_code == requests.codes.ok:
+        information = response.text
+    else:
+        information = 'Cant find your required food'
+    return information
+
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    uvicorn.run(app, host='192.168.170.35', port=8000)
+
+    uvicorn.run(app, host='192.168.1.11', port=8000)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

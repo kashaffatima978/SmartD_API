@@ -122,5 +122,5 @@ def estimate(cnts,cntsArea, path):
 		0.65, (255, 255, 255), 2)
 	# show the output image
   # cv2.imshow(orig)
-  cv2.waitKey(0)
+  # cv2.waitKey(0)
   return dimA, dimB

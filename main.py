@@ -1,4 +1,5 @@
 # This is a sample Python script.
+import io
 from typing import List
 import re
 import cv2
@@ -364,14 +365,16 @@ def estimateVolume(topPath, sidePath):
     return Volume
 
 @app.post('/getVolume')
-async def getVolume(top: UploadFile = File(...),side: UploadFile = File(...)):
+async def getVolume(top: bytes = File(...),side: bytes = File(...)):
     print("hello i am here ")
-    contents = await top.read()
-    contents1 = await side.read()
-    with open('./Images/top.jpg', 'wb') as f:
-        f.write(contents)
-    with open('./Images/side.jpg', 'wb') as f:
-        f.write(contents1)
+
+    dataBytesIO = io.BytesIO(top)
+    topImg = Image.open(dataBytesIO)
+    topImg.save('./Images/top.jpg')
+
+    dataBytesIO = io.BytesIO(side)
+    sideImg = Image.open(dataBytesIO)
+    sideImg.save('./Images/side.jpg')
 
     topimg = cv2.imread("./Images/top.jpg")
     print(topimg)
@@ -395,13 +398,13 @@ async def getVolume(top: UploadFile = File(...),side: UploadFile = File(...)):
         information = response.text
     else:
         information = 'Cant find your required food'
-    return information
+    return {'info': information}
 
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
 
-    uvicorn.run(app, host='192.168.1.11', port=8000)
+    uvicorn.run(app, host='192.168.1.9', port=8000)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

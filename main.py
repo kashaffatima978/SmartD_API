@@ -9,6 +9,8 @@ from fastapi import Body, FastAPI, File, UploadFile
 import numpy as np
 import tensorflow as tf
 from pandas.io import json
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 from starlette.middleware.cors import CORSMiddleware
 from io import BytesIO
 from PIL import Image
@@ -18,6 +20,9 @@ import json
 from bs4 import BeautifulSoup
 import requests
 from Food.VolumeEstimation import preprocess_image , estimate
+from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
+
 
 
 app = FastAPI()
@@ -399,6 +404,39 @@ async def getVolume(top: bytes = File(...),side: bytes = File(...)):
     else:
         information = 'Cant find your required food'
     return {'info': information}
+
+
+@app.post('/getActiveAgent')
+async def getActiveAgent(med: str= Body(embed=True)):
+    url = 'https://www.dvago.pk/search?search='+med
+    content = requests.get(url)
+    htmlContent = content.content
+    soup = BeautifulSoup(htmlContent, "html.parser")
+    mainDiv = soup.find('div', class_='infinite-scroll-component').find('ul')
+    mainDiv = mainDiv.find('li', class_= 'ProductCard_productListWrapper__WyYAq')
+    mainDiv = mainDiv.find('div', class_= 'ProductCard_productHeader__KbPwZ').find('a')
+    print(mainDiv)
+    link = 'https://www.dvago.pk'+mainDiv['href']
+    print(link)
+
+    if(link.__contains__(med)):
+        driver = webdriver.Chrome()  # Replace with the appropriate WebDriver for your browser
+        driver.get(link)
+
+        wait = WebDriverWait(driver, 5)  # Wait for a maximum of 10 seconds
+        button = wait.until(EC.element_to_be_clickable((By.ID, "vertical-tab-2")))
+        button.click()
+
+        updated_html = driver.page_source
+        soup = BeautifulSoup(updated_html, "html.parser")
+        medDiv = soup.find('div', id='vertical-tabpanel-2')
+        medDiv = medDiv.find('div', class_= 'MuiBox-root').find('p')
+        activeAgents = medDiv.text
+        arr = activeAgents.split(' ')
+        return arr
+
+    else:
+        return []
 
 
 

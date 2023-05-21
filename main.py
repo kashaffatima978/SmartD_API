@@ -22,6 +22,7 @@ import requests
 from Food.VolumeEstimation import preprocess_image , estimate
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
+import easyocr
 
 
 
@@ -366,8 +367,11 @@ def estimateVolume(topPath, sidePath):
     height, width = estimate(cnts1,cntsArea1, sidePath)
     Volume = (length) * (width) * (height)
     Volume = Volume * 16.3871
+    volumeLB = (Volume/453.59)
+    volumeLB = "{:.3f}".format(volumeLB % 1)
+    print('Volume in lb', volumeLB)
     print('Volume is ', Volume)
-    return Volume
+    return volumeLB
 
 @app.post('/getVolume')
 async def getVolume(top: bytes = File(...),side: bytes = File(...)):
@@ -394,7 +398,7 @@ async def getVolume(top: bytes = File(...),side: bytes = File(...)):
     foodName = foodName.replace("_", " " )
 
     Volume = estimateVolume("./Images/top.jpg", "./Images/side.jpg" )
-    query = str(Volume)+' cm3 '+foodName
+    query = str(Volume)+' lb '+foodName
     print("***********************************************",query)
     api_url = 'https://api.api-ninjas.com/v1/nutrition?query={}'.format(query)
     print(api_url)
@@ -408,6 +412,7 @@ async def getVolume(top: bytes = File(...),side: bytes = File(...)):
 
 @app.post('/getActiveAgent')
 async def getActiveAgent(med: str= Body(embed=True)):
+    med = med.lower()
     url = 'https://www.dvago.pk/search?search='+med
     content = requests.get(url)
     htmlContent = content.content
@@ -432,14 +437,22 @@ async def getActiveAgent(med: str= Body(embed=True)):
         medDiv = soup.find('div', id='vertical-tabpanel-2')
         medDiv = medDiv.find('div', class_= 'MuiBox-root').find('p')
         activeAgents = medDiv.text
-        arr = activeAgents.split(' ')
+        arr = activeAgents.split(',')
         return arr
 
     else:
         return []
 
-
-
+reader = easyocr.Reader(['en'], gpu=False)
+@app.post('/ReadMedicineName')
+async def MedicationName(file: UploadFile = File(...)):
+    print('I am in medicine name detection ', type(file))
+    contents = await file.read()
+    with open('./Images/med1.jpg', 'wb') as f:
+        f.write(contents)
+    image = cv2.imread("./Images/med1.jpg")
+    text = reader.readtext(image, detail=0, paragraph=True)
+    return text
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
 

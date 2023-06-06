@@ -412,36 +412,43 @@ async def getVolume(top: bytes = File(...),side: bytes = File(...)):
 
 @app.post('/getActiveAgent')
 async def getActiveAgent(med: str= Body(embed=True)):
-    med = med.lower()
-    url = 'https://www.dvago.pk/search?search='+med
-    content = requests.get(url)
-    htmlContent = content.content
-    soup = BeautifulSoup(htmlContent, "html.parser")
-    mainDiv = soup.find('div', class_='infinite-scroll-component').find('ul')
-    mainDiv = mainDiv.find('li', class_= 'ProductCard_productListWrapper__WyYAq')
-    mainDiv = mainDiv.find('div', class_= 'ProductCard_productHeader__KbPwZ').find('a')
-    print(mainDiv)
-    link = 'https://www.dvago.pk'+mainDiv['href']
-    print(link)
+    try:
+        med = med.lower()
+        url = 'https://www.dvago.pk/search?search='+med
+        content = requests.get(url)
+        htmlContent = content.content
+        soup = BeautifulSoup(htmlContent, "html.parser")
+        mainDiv = soup.find('div', class_='infinite-scroll-component').find('ul')
+        mainDiv = mainDiv.find('li', class_= 'ProductCard_productListWrapper__WyYAq')
+        mainDiv = mainDiv.find('div', class_= 'ProductCard_productHeader__KbPwZ').find('a')
+        print(mainDiv)
+        link = 'https://www.dvago.pk'+mainDiv['href']
+        print(link)
 
-    if(link.__contains__(med)):
-        driver = webdriver.Chrome()  # Replace with the appropriate WebDriver for your browser
-        driver.get(link)
+        if(link.__contains__(med)):
+            driver = webdriver.Chrome()  # Replace with the appropriate WebDriver for your browser
+            driver.get(link)
 
-        wait = WebDriverWait(driver, 5)  # Wait for a maximum of 10 seconds
-        button = wait.until(EC.element_to_be_clickable((By.ID, "vertical-tab-2")))
-        button.click()
+            wait = WebDriverWait(driver, 5)  # Wait for a maximum of 10 seconds
+            button = wait.until(EC.element_to_be_clickable((By.ID, "vertical-tab-2")))
+            button.click()
 
-        updated_html = driver.page_source
-        soup = BeautifulSoup(updated_html, "html.parser")
-        medDiv = soup.find('div', id='vertical-tabpanel-2')
-        medDiv = medDiv.find('div', class_= 'MuiBox-root').find('p')
-        activeAgents = medDiv.text
-        arr = activeAgents.split(',')
-        return arr
+            updated_html = driver.page_source
+            soup = BeautifulSoup(updated_html, "html.parser")
+            medDiv = soup.find('div', id='vertical-tabpanel-2')
+            medDiv = medDiv.find('div', class_= 'MuiBox-root').find('p')
+            activeAgents = medDiv.text
+            arr = activeAgents.split(',')
+            print(arr)
+            return arr
 
-    else:
+        else:
+            return []
+    except:
+        print('in except')
         return []
+
+
 
 reader = easyocr.Reader(['en'], gpu=False)
 @app.post('/ReadMedicineName')
@@ -452,10 +459,11 @@ async def MedicationName(file: UploadFile = File(...)):
         f.write(contents)
     image = cv2.imread("./Images/med1.jpg")
     text = reader.readtext(image, detail=0, paragraph=True)
+    print(text)
     return text
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
 
-    uvicorn.run(app, host='192.168.1.9', port=8000)
+    uvicorn.run(app, host='192.168.1.4', port=8000)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

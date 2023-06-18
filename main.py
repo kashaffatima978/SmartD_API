@@ -432,20 +432,20 @@ async def getActiveAgent(med: str= Body(embed=True)):
 
             # wait = WebDriverWait(driver, 5)  # Wait for a maximum of 10 seconds
 
-            print(433)
-            banner_element = driver.find_element(By.CLASS_NAME,'banner-popup_popup__2G0S8')  # Locate the banner element using its ID
-            print(banner_element)
-                # Check if the banner_element is empty or not
-            if (banner_element!=''):
-                print(441)
-                    # Perform actions on the non-empty banner_element
-                close_button = banner_element.find_element(By.CLASS_NAME,'banner-popup_popupWrapper__hRWl2') # Locate the close button within the banner
-                close_button = close_button.find_element(By.CLASS_NAME,'banner-popup_closePopupBtn__AP5i0')
-                    # banner - popup_closePopupBtn__AP5i0
-                close_button.click()  # Click on the close button to close the banner
-            else:
-                    # Handle the case when the banner_element is empty
-                print("Banner element is empty.")
+            # print(433)
+            # banner_element = driver.find_element(By.CLASS_NAME,'banner-popup_popup__2G0S8')  # Locate the banner element using its ID
+            # print(banner_element)
+            #     # Check if the banner_element is empty or not
+            # if (banner_element!=''):
+            #     print(441)
+            #         # Perform actions on the non-empty banner_element
+            #     close_button = banner_element.find_element(By.CLASS_NAME,'banner-popup_popupWrapper__hRWl2') # Locate the close button within the banner
+            #     close_button = close_button.find_element(By.CLASS_NAME,'banner-popup_closePopupBtn__AP5i0')
+            #         # banner - popup_closePopupBtn__AP5i0
+            #     close_button.click()  # Click on the close button to close the banner
+            # else:
+            #         # Handle the case when the banner_element is empty
+            #     print("Banner element is empty.")
 
             print(436)
             wait = WebDriverWait(driver, 5)  # Wait for a maximum of 10 seconds
@@ -455,6 +455,7 @@ async def getActiveAgent(med: str= Body(embed=True)):
             soup = BeautifulSoup(updated_html, "html.parser")
             medDiv = soup.find('div', id='vertical-tabpanel-2')
             medDiv = medDiv.find('div', class_= 'MuiBox-root').find('p')
+            medDiv = medDiv.find('p')
             print(medDiv)
             activeAgents = medDiv.text
             arr = activeAgents.split(',')
@@ -480,9 +481,9 @@ async def MedicationName(file: UploadFile = File(...)):
     text = reader.readtext(image, detail=0, paragraph=True)
     print(text)
     return text
-# Press the green button in the gutter to run the script.
+# Press the green button in the gu`tter to run the script.
 if __name__ == '__main__':
 
-    uvicorn.run(app, host='192.168.1.4', port=8000)
+    uvicorn.run(app, host='192.168.10.146', port=8000)
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
